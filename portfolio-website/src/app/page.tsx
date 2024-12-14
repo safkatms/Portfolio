@@ -1,4 +1,5 @@
 import Header from "./components/header";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -7,9 +8,11 @@ export default function Home() {
       <div className="container mx-auto px-4 py-3 h-screen flex flex-col md:flex-row">
         {/* Left section for the photo */}
         <div className="w-full md:w-1/2 h-full p-4 flex items-center justify-center">
-          <img
+          <Image
             src="/profile.jpg"
             alt="Profile"
+            width={320}
+            height={320}
             className="w-80 h-80 md:w-80 md:h-80 lg:w-80 lg:h-80 rounded-full object-cover ring-4 ring-offset-2 ring-blue-500"
           />
         </div>
