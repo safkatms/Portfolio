@@ -62,7 +62,7 @@ const Header = () => {
         </nav>
 
         {/* Social Media Links */}
-        <div className="flex space-x-4">
+        <div className="flex space-x-2">
           <a
             href="https://facebook.com/safkatmahmudsakib"
             target="_blank"
