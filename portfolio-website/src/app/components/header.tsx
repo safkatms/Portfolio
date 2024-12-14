@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,12 +24,19 @@ const Header = () => {
   };
 
   return (
-    <header className="text-white sticky top-0 z-50 shadow-md font-sans">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header className="text-white sticky h-20 top-0 z-50 shadow-md font-sans">
+      <div className="container mx-auto px-4 py-3 h-full flex justify-between items-center">
         {/* Logo Section */}
-        <div className="text-2xl font-bold">
+        <div className="w-16 h-16">
           <Link href="/" className="hover:text-blue-400">
-            S
+            <Image
+              src="/logo.jpg"
+              alt="Profile"
+              width={80}
+              height={80}
+              quality={100}
+              className="rounded-full object-contain ring ring-blue-500"
+            />
           </Link>
         </div>
 
@@ -61,12 +69,13 @@ const Header = () => {
           </Link>
         </nav>
 
-        {/* Social Media Links */}
-        <div className="flex space-x-2">
+        <div className="flex flex-col space-y-4 fixed top-1/2 left-4 bg-transparent">
+          {/* Social Media Links */}
           <a
             href="https://facebook.com/safkatmahmudsakib"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-blue-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +118,7 @@ const Header = () => {
             href="https://linkedin.com/in/safkatms"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-blue-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -169,6 +179,7 @@ const Header = () => {
             href="https://github.com/safkatms"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-gray-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

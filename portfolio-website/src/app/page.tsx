@@ -11,8 +11,8 @@ export default function Home() {
           <Image
             src="/Profile.jpg"
             alt="Profile"
-            width={320}
-            height={320}
+            width={720}
+            height={720}
             className="w-80 h-80 md:w-80 md:h-80 lg:w-80 lg:h-80 rounded-full object-cover ring-4 ring-offset-2 ring-blue-500"
           />
         </div>
