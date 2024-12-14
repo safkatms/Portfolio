@@ -191,8 +191,21 @@ const Header = () => {
                   <animate
                     fill="freeze"
                     attributeName="stroke-dashoffset"
-                    dur="0.4s"
+                    dur="0.7s"
                     values="32;0"
+                  ></animate>
+                </path>
+                <path
+                  strokeDasharray={10}
+                  strokeDashoffset={10}
+                  d="M9 19c-1.41 0 -2.84 -0.56 -3.69 -1.19c-0.84 -0.63 -1.09 -1.66 -2.31 -2.31"
+                >
+                  <animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.8s"
+                    dur="0.2s"
+                    values="10;0"
                   ></animate>
                 </path>
               </g>
