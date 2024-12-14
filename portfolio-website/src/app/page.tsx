@@ -20,7 +20,7 @@ export default function Home() {
         {/* Right section for the content */}
         <div className="w-full md:w-1/2 h-full bg-white p-8 flex flex-col items-center justify-center rounded-lg shadow-2xl">
           <h1 className="text-2xl md:text-4xl font-extrabold text-gray-800 mb-4 animate__animated animate__fadeIn">
-            Hi, I'm Safkat Mahmud Sakib
+            Hi, I&apos;m Safkat Mahmud Sakib
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-6 italic animate__animated animate__fadeIn animate__delay-1s">
             A Full Stack Developer
