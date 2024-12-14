@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Light Theme */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0070f3;
+  --button-color: #0070f3;
+  --hover-color: #005bb5;
+  --header-bg-color: #f7f7f7;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #1a202c;
+  --text-color: #f7fafc;
+  --link-color: #f7fafc;
+  --button-color: #f7fafc;
+  --hover-color: #38b2ac;
+  --header-bg-color: #2d3748;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+header {
+  background-color: var(--header-bg-color);
+}
+
+button{
+  color: var(--button-color);
+}
+
