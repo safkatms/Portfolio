@@ -44,26 +44,26 @@ const Header = () => {
         <nav
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } md:flex md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent p-4 md:p-0`}
+          } md:flex md:space-x-6 text-2xl absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent p-4 md:p-0`}
         >
-          <Link href="/" className="block py-2 md:py-0 hover:text-blue-400">
+          <Link href="/" className="block py-2 md:py-0">
             Home
           </Link>
           <Link
             href="/about"
-            className="block py-2 md:py-0 hover:text-blue-400"
+            className="block py-2 md:py-0"
           >
             About
           </Link>
           <Link
             href="/projects"
-            className="block py-2 md:py-0 hover:text-blue-400"
+            className="block py-2 md:py-0"
           >
             Projects
           </Link>
           <Link
             href="/contact"
-            className="block py-2 md:py-0 hover:text-blue-400"
+            className="block py-2 md:py-0"
           >
             Contact
           </Link>
@@ -75,7 +75,6 @@ const Header = () => {
             href="https://facebook.com/safkatmahmudsakib"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +117,6 @@ const Header = () => {
             href="https://linkedin.com/in/safkatms"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +177,6 @@ const Header = () => {
             href="https://github.com/safkatms"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
