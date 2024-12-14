@@ -9,7 +9,7 @@ export default function Home() {
         {/* Left section for the photo */}
         <div className="w-full md:w-1/2 h-full p-4 flex items-center justify-center">
           <Image
-            src="/profile.jpg"
+            src="/Profile.jpg"
             alt="Profile"
             width={320}
             height={320}
