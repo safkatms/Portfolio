@@ -2,6 +2,9 @@ import React from "react";
 import Header from "../components/header";
 import Skills from "../components/skills";
 import Educational from "../components/educational";
+import Tabs from "../components/tab";
+import Hobbies from "../components/hobbies";
+import Personal from "../components/personal";
 
 export default function About() {
   return (
@@ -16,61 +19,21 @@ export default function About() {
           </h1>
 
           {/* Tabs Section */}
-          <div className="flex justify-center mb-16">
-            <a
-              href="#education"
-              className="px-6 py-3 mx-2 bg-gradient-to-r from-purple-400 to-indigo-500 text-white font-semibold rounded-full cursor-pointer hover:from-green-400 hover:to-yellow-500 transform transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl"
-            >
-              Education
-            </a>
-            <a
-              href="#skills"
-              className="px-6 py-3 mx-2 bg-gradient-to-r from-purple-400 to-indigo-500 text-white font-semibold rounded-full cursor-pointer hover:from-green-400 hover:to-yellow-500 transform transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl"
-            >
-              Skills
-            </a>
-            <a
-              href="#hobbies"
-              className="px-6 py-3 mx-2 bg-gradient-to-r from-purple-400 to-indigo-500 text-white font-semibold rounded-full cursor-pointer hover:from-green-400 hover:to-yellow-500 transform transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl"
-            >
-              Hobbies
-            </a>
-            <a
-              href="#personal"
-              className="px-6 py-3 mx-2 bg-gradient-to-r from-purple-400 to-indigo-500 text-white font-semibold rounded-full cursor-pointer hover:from-green-400 hover:to-yellow-500 transform transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl"
-            >
-              Personal
-            </a>
-          </div>
+          <Tabs/>
 
           {/* Content Sections */}
           <div className="space-y-16">
             {/* Education Section */}
-            <Educational/>
+            <Educational />
             <hr />
             {/* Skills Section */}
-            <Skills/>
+            <Skills />
             <hr />
             {/* Hobbies Section */}
-            <section id="hobbies" className="min-h-screen">
-              <h2 className="text-3xl font-bold text-pink-500 mb-6">Hobbies</h2>
-              <p className="text-gray-300">
-                Details about your hobbies go here. Share personal interests
-                that make you unique and add depth to your profile.
-              </p>
-            </section>
-
+            <Hobbies/>
+            <hr />
             {/* Personal Section */}
-            <section id="personal" className="min-h-screen">
-              <h2 className="text-3xl font-bold text-pink-500 mb-6">
-                Personal
-              </h2>
-              <p className="text-gray-300">
-                Personal details about yourself can be added here. Mention
-                achievements, aspirations, or other personal information you
-                want to highlight.
-              </p>
-            </section>
+            <Personal/>
           </div>
         </div>
       </div>

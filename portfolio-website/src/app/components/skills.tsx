@@ -13,7 +13,7 @@ const Skills = () => {
 
         {/* Programming Languages */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4">Programming Languages</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Programming Languages</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
             {/* C */}
             <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
@@ -92,7 +92,7 @@ const Skills = () => {
 
         {/* Frameworks */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4">Frameworks</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Frameworks</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
             {/* .NET */}
             <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
@@ -126,7 +126,7 @@ const Skills = () => {
 
         {/* Databases */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4">Databases</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Databases</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
             {/* Oracle */}
             <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
@@ -169,7 +169,7 @@ const Skills = () => {
 
         {/* Other Tools */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4">Other Tools</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Other Tools</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
             {/* HTML */}
             <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">

@@ -43,3 +43,6 @@ button{
   color: var(--button-color);
 }
 
+html {
+  scroll-behavior: smooth;
+}
