@@ -73,7 +73,7 @@ const Tabs = () => {
             Hobbies
           </a>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a
             href="#personal"
             onClick={() => setActiveTab("personal")}
@@ -85,7 +85,7 @@ const Tabs = () => {
           >
             Personal
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

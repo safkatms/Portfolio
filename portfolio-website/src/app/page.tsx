@@ -4,7 +4,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <Header />
       <div className="container mx-auto px-4 py-3 h-screen flex flex-col md:flex-row">
         {/* Left section for the photo */}
         <div className="w-full md:w-1/2 h-full p-4 flex items-center justify-center">
