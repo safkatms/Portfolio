@@ -42,7 +42,7 @@ export default function Home() {
           <div className="flex space-x-4">
             {/* Download CV Button */}
             <a
-              href="/cv.pdf"
+              href="/SafkatMahmudSakibResume.pdf"
               download
               className="bg-gradient-to-r from-teal-400 to-blue-500 text-white py-3 px-8 rounded-full text-lg md:text-xl hover:from-pink-500 hover:to-orange-500 transform transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl flex items-center space-x-2"
             >

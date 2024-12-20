@@ -8,7 +8,7 @@ const projects = [
     description:
       "A multi-tenant SaaS ERP web application with authentication, payroll, inventory, finance, and more. Backend: NestJS, Frontend: Next.js.",
     techStack: ["NestJS", "Next.js", "PostgreSQL", "TypeORM"],
-    link: "#",
+    link: "https://github.com/safkatms/All-in-OneBusinessSolution",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const projects = [
     description:
       "A microservice-based e-commerce website for seamless shopping experiences. Backend: NestJS, Frontend: Next.js.",
     techStack: ["NestJS", "Next.js", "Microservices"],
-    link: "#",
+    link: "https://github.com/safkatms/NestCart",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const projects = [
     description:
       "A B2C e-commerce platform for online shopping with ASP.NET MVC.",
     techStack: ["ASP.NET MVC", "SQL Server"],
-    link: "#",
+    link: "https://github.com/safkatms/Dealora",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const projects = [
     description:
       "An online hotel booking website with dynamic features using PHP, JS, AJAX, and more.",
     techStack: ["PHP", "JavaScript", "AJAX", "jQuery", "HTML", "CSS"],
-    link: "#",
+    link: "https://github.com/safkatms/StayDriveGo",
   },
   {
     id: 5,
@@ -40,21 +40,21 @@ const projects = [
     description:
       "Bus and air ticket booking system, built as a desktop app using .NET Windows Forms.",
     techStack: [".NET Windows Forms", "C#"],
-    link: "#",
+    link: "https://github.com/safkatms/EasyTrip",
   },
   {
     id: 6,
     title: "Air Ticket Booking System",
     description: "Console-based Java application for booking air tickets.",
     techStack: ["Java"],
-    link: "#",
+    link: "https://github.com/safkatms/AirlineTicketReservationSystem",
   },
   {
     id: 7,
     title: "Portfolio Website",
     description: "This portfolio, developed using Next.js and Tailwind CSS.",
     techStack: ["Next.js", "Tailwind CSS"],
-    link: "#",
+    link: "https://github.com/safkatms/Portfolio",
   },
 ];
 
