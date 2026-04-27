@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Skills from "../components/skills";
 import Educational from "../components/educational";
