@@ -2,295 +2,268 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
-      <div className="container mx-auto px-4 py-3 h-screen flex flex-col md:flex-row">
-        {/* Left section for the photo */}
-        <div className="w-full md:w-1/2 h-full p-4 flex items-center justify-center">
-          <Image
-            src="/Profile.jpg"
-            alt="Profile"
-            width={720}
-            height={720}
-            className="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover ring-8 ring-offset-4 ring-blue-500 shadow-lg transition-transform duration-500 hover:scale-105"
-          />
+    <main style={{ minHeight: "calc(100vh - 72px)", display: "flex", alignItems: "center" }}>
+      {/* Background ambient */}
+      <div style={{
+        position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0,
+        background: "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,169,110,0.04) 0%, transparent 70%)",
+      }} />
+
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "4rem 2rem", width: "100%", position: "relative", zIndex: 1 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}
+          className="grid-responsive">
+
+          {/* Left — Text */}
+          <div>
+            <div className="animate-fade-up" style={{ marginBottom: "2rem" }}>
+              <span style={{
+                fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase",
+                color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: "8px",
+              }}>
+                <span style={{ width: "30px", height: "1px", background: "var(--accent)", display: "inline-block" }} />
+                Software Engineer
+              </span>
+            </div>
+
+            <h1
+              className="animate-fade-up delay-100"
+              style={{
+                fontFamily: "var(--font-cormorant), serif",
+                fontSize: "clamp(3rem, 6vw, 5rem)",
+                fontWeight: 600,
+                lineHeight: 1.05,
+                color: "var(--white)",
+                marginBottom: "1.5rem",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Safkat<br />
+              <span className="text-shimmer">Mahmud Sakib</span>
+            </h1>
+
+            <p
+              className="animate-fade-up delay-200"
+              style={{
+                fontSize: "1rem",
+                lineHeight: 1.75,
+                color: "var(--text-muted)",
+                maxWidth: "480px",
+                marginBottom: "2.5rem",
+                fontWeight: 300,
+              }}
+            >
+              Full Stack Developer building enterprise applications, SaaS ERP systems, and scalable architectures with{" "}
+              <span style={{ color: "var(--text)" }}>.NET</span>,{" "}
+              <span style={{ color: "var(--text)" }}>NestJS</span>, and{" "}
+              <span style={{ color: "var(--text)" }}>Next.js</span>.
+            </p>
+
+            <div className="animate-fade-up delay-300" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "3rem" }}>
+              <a href="/projects" style={{
+                display: "inline-flex", alignItems: "center", gap: "8px",
+                padding: "12px 28px", background: "var(--accent)", color: "var(--bg)",
+                fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase",
+                borderRadius: "1px", textDecoration: "none", transition: "opacity 0.2s",
+              }}>
+                View Projects
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+              <a href="/cv.pdf" download style={{
+                display: "inline-flex", alignItems: "center", gap: "8px",
+                padding: "11px 28px", background: "transparent", color: "var(--accent)",
+                fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase",
+                border: "1px solid rgba(201,169,110,0.4)", borderRadius: "1px", textDecoration: "none", transition: "all 0.2s",
+              }}>
+                Download CV
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path d="M6.5 1v8M3 6l3.5 3.5L10 6M1 12h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Social */}
+            <div className="animate-fade-up delay-400" style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+              <span style={{ fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)" }}>Find me</span>
+              <span style={{ width: "24px", height: "1px", background: "var(--border)" }} />
+              {[
+                {
+                  href: "https://github.com/safkatms",
+                  label: "GitHub",
+                  icon: (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                  ),
+                },
+                {
+                  href: "https://linkedin.com/in/safkatms",
+                  label: "LinkedIn",
+                  icon: (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  ),
+                },
+                {
+                  href: "mailto:safkatmahmudsakib@gmail.com",
+                  label: "Email",
+                  icon: (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="M2 8l10 6 10-6" />
+                    </svg>
+                  ),
+                },
+              ].map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={s.label}
+                  style={{ color: "var(--text-muted)", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — Photo */}
+          <div className="animate-fade-in delay-300" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div style={{ position: "relative" }}>
+              {/* Decorative frame */}
+              <div style={{
+                position: "absolute",
+                inset: "-12px",
+                border: "1px solid rgba(201,169,110,0.2)",
+                borderRadius: "2px",
+                zIndex: 0,
+              }} />
+              <div style={{
+                position: "absolute",
+                inset: "-24px",
+                border: "1px solid rgba(201,169,110,0.07)",
+                borderRadius: "2px",
+                zIndex: 0,
+              }} />
+              {/* Gold accent corner */}
+              <div style={{
+                position: "absolute",
+                bottom: "-12px",
+                right: "-12px",
+                width: "60px",
+                height: "60px",
+                borderBottom: "2px solid var(--accent)",
+                borderRight: "2px solid var(--accent)",
+                zIndex: 2,
+              }} />
+              <div style={{
+                position: "absolute",
+                top: "-12px",
+                left: "-12px",
+                width: "60px",
+                height: "60px",
+                borderTop: "2px solid var(--accent)",
+                borderLeft: "2px solid var(--accent)",
+                zIndex: 2,
+              }} />
+              <Image
+                src="/Profile.jpg"
+                alt="Safkat Mahmud Sakib"
+                width={400}
+                height={480}
+                style={{
+                  width: "100%",
+                  maxWidth: "360px",
+                  height: "440px",
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                  borderRadius: "2px",
+                  display: "block",
+                  filter: "grayscale(15%) contrast(1.05)",
+                  position: "relative",
+                  zIndex: 1,
+                }}
+              />
+              {/* Status badge */}
+              <div style={{
+                position: "absolute",
+                bottom: "20px",
+                left: "-20px",
+                background: "var(--surface)",
+                border: "1px solid rgba(201,169,110,0.25)",
+                padding: "10px 16px",
+                borderRadius: "2px",
+                zIndex: 3,
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}>
+                <span style={{
+                  width: "6px", height: "6px", borderRadius: "50%",
+                  background: "#4ade80",
+                  boxShadow: "0 0 8px rgba(74,222,128,0.6)",
+                  display: "inline-block",
+                }} />
+                <span style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+                  Available
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Right section for the content */}
-        <div className="w-full md:w-1/2 h-full bg-gradient-to-r from-gray-50 via-white to-gray-100 p-10 flex flex-col items-center justify-center rounded-lg shadow-2xl relative overflow-hidden">
-          {/* Background decorative elements */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-br from-pink-400 to-orange-400 rounded-full blur-3xl opacity-50"></div>
-
-          {/* Content */}
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 text-center leading-tight">
-            Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">
-              Safkat Mahmud Sakib
-            </span>
-          </h1>
-          <h2 className="text-xl md:text-3xl font-semibold text-teal-500 mb-4 text-center">
-            — Full Stack Developer
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-6 text-center leading-relaxed italic">
-            Crafting scalable and efficient web applications with{" "}
-            <span className="font-bold text-gray-800">Next.js</span>,{" "}
-            <span className="font-bold text-gray-800">NestJS</span>, and{" "}
-            <span className="font-bold text-gray-800">ASP.NET</span>.
-          </p>
-
-          {/* Buttons */}
-          <div className="flex space-x-4">
-            {/* Download CV Button */}
-            <a
-              href="/cv.pdf"
-              download
-              className="bg-gradient-to-r from-teal-400 to-blue-500 text-white py-3 px-8 rounded-full text-lg md:text-xl hover:from-pink-500 hover:to-orange-500 transform transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl flex items-center space-x-2"
-            >
-              Download CV
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                className="ml-2"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                >
-                  <path
-                    fill="currentColor"
-                    fillOpacity={0}
-                    strokeDasharray={20}
-                    strokeDashoffset={20}
-                    d="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5"
-                  >
-                    <animate
-                      attributeName="d"
-                      begin="0.5s"
-                      dur="1.5s"
-                      repeatCount="indefinite"
-                      values="M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5;M12 4h2v3h2.5l-4.5 4.5M12 4h-2v3h-2.5l4.5 4.5;M12 4h2v6h2.5l-4.5 4.5M12 4h-2v6h-2.5l4.5 4.5"
-                    ></animate>
-                    <animate
-                      fill="freeze"
-                      attributeName="fill-opacity"
-                      begin="0.7s"
-                      dur="0.5s"
-                      values="0;1"
-                    ></animate>
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      dur="0.4s"
-                      values="20;0"
-                    ></animate>
-                  </path>
-                  <path strokeDasharray={14} strokeDashoffset={14} d="M6 19h12">
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      begin="0.5s"
-                      dur="0.2s"
-                      values="14;0"
-                    ></animate>
-                  </path>
-                </g>
-              </svg>
-            </a>
-
-            {/* View Projects Button */}
-            <a
-              href="/projects"
-              className="bg-gradient-to-r from-purple-400 to-indigo-500 text-white py-3 px-8 rounded-full text-lg md:text-xl hover:from-green-400 hover:to-yellow-500 transform transition-all duration-300 ease-in-out shadow-lg hover:shadow-2xl flex items-center space-x-3 group"
-            >
-              <span>View Projects</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300 ease-in-out"
-              >
-                <path
-                  d="M10 6L16 12L10 18"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                ></path>
-              </svg>
-            </a>
-          </div>
-          {/* Social Media Links Section */}
-          <div className="mt-8 flex justify-center space-x-6">
-            {/* Facebook */}
-            <a
-              href="https://facebook.com/safkatmahmudsakib"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={4}
-                >
-                  <path
-                    strokeDasharray={24}
-                    strokeDashoffset={24}
-                    d="M17 4l-2 0c-2.5 0 -4 1.5 -4 4v12"
-                  >
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      dur="0.4s"
-                      values="24;0"
-                    ></animate>
-                  </path>
-                  <path strokeDasharray={8} strokeDashoffset={8} d="M8 12h7">
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      begin="0.5s"
-                      dur="0.2s"
-                      values="8;0"
-                    ></animate>
-                  </path>
-                </g>
-              </svg>
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href="https://linkedin.com/in/safkatms"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-              >
-                <circle cx={4} cy={4} r={2} fill="currentColor" fillOpacity={0}>
-                  <animate
-                    fill="freeze"
-                    attributeName="fill-opacity"
-                    dur="0.15s"
-                    values="0;1"
-                  ></animate>
-                </circle>
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={4}
-                >
-                  <path strokeDasharray={12} strokeDashoffset={12} d="M4 10v10">
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      begin="0.15s"
-                      dur="0.2s"
-                      values="12;0"
-                    ></animate>
-                  </path>
-                  <path
-                    strokeDasharray={12}
-                    strokeDashoffset={12}
-                    d="M10 10v10"
-                  >
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      begin="0.45s"
-                      dur="0.2s"
-                      values="12;0"
-                    ></animate>
-                  </path>
-                  <path
-                    strokeDasharray={24}
-                    strokeDashoffset={24}
-                    d="M10 15c0 -2.76 2.24 -5 5 -5c2.76 0 5 2.24 5 5v5"
-                  >
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      begin="0.65s"
-                      dur="0.2s"
-                      values="24;0"
-                    ></animate>
-                  </path>
-                </g>
-              </svg>
-            </a>
-
-            {/* GitHub */}
-            <a
-              href="https://github.com/safkatms"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeDasharray={32}
-                    strokeDashoffset={32}
-                    d="M12 4c1.67 0 2.61 0.4 3 0.5c0.53 -0.43 1.94 -1.5 3.5 -1.5c0.34 1 0.29 2.22 0 3c0.75 1 1 2 1 3.5c0 2.19 -0.48 3.58 -1.5 4.5c-1.02 0.92 -2.11 1.37 -3.5 1.5c0.65 0.54 0.5 1.87 0.5 2.5c0 0.73 0 3 0 3M12 4c-1.67 0 -2.61 0.4 -3 0.5c-0.53 -0.43 -1.94 -1.5 -3.5 -1.5c-0.34 1 -0.29 2.22 0 3c-0.75 1 -1 2 -1 3.5c0 2.19 0.48 3.58 1.5 4.5c1.02 0.92 2.11 1.37 3.5 1.5c-0.65 0.54 -0.5 1.87 -0.5 2.5c0 0.73 0 3 0 3"
-                  >
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      dur="0.7s"
-                      values="32;0"
-                    ></animate>
-                  </path>
-                  <path
-                    strokeDasharray={10}
-                    strokeDashoffset={10}
-                    d="M9 19c-1.41 0 -2.84 -0.56 -3.69 -1.19c-0.84 -0.63 -1.09 -1.66 -2.31 -2.31"
-                  >
-                    <animate
-                      fill="freeze"
-                      attributeName="stroke-dashoffset"
-                      begin="0.8s"
-                      dur="0.2s"
-                      values="10;0"
-                    ></animate>
-                  </path>
-                </g>
-              </svg>
-            </a>
-          </div>
+        {/* Stats row */}
+        <div className="animate-fade-up delay-500" style={{
+          marginTop: "5rem",
+          paddingTop: "3rem",
+          borderTop: "1px solid var(--border)",
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "2rem",
+          maxWidth: "600px",
+        }}>
+          {[
+            { num: "2+", label: "Years Experience" },
+            { num: "5+", label: "Projects Shipped" },
+            { num: "3.76", label: "CGPA — AIUB" },
+          ].map((s) => (
+            <div key={s.label}>
+              <div style={{
+                fontFamily: "var(--font-cormorant), serif",
+                fontSize: "2.2rem",
+                fontWeight: 600,
+                color: "var(--accent)",
+                lineHeight: 1,
+                marginBottom: "4px",
+              }}>
+                {s.num}
+              </div>
+              <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+                {s.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .grid-responsive {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+          }
+          .grid-responsive > div:last-child {
+            order: -1;
+          }
+        }
+      `}</style>
+    </main>
   );
 }

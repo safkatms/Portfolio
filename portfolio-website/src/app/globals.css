@@ -2,47 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Default Light Theme */
 :root {
-  --bg-color: #ffffff;
-  --text-color: #333333;
-  --link-color: #0070f3;
-  --button-color: #0070f3;
-  --hover-color: #005bb5;
-  --header-bg-color: #f7f7f7;
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface-2: #16161f;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8e6e1;
+  --text-muted: #7a7888;
+  --accent: #c9a96e;
+  --accent-dim: rgba(201,169,110,0.1);
+  --accent-glow: rgba(201,169,110,0.2);
+  --white: #f5f3ef;
 }
 
-/* Dark Theme */
-[data-theme="dark"] {
-  --bg-color: #1a202c;
-  --text-color: #f7fafc;
-  --link-color: #f7fafc;
-  --button-color: #f7fafc;
-  --hover-color: #38b2ac;
-  --header-bg-color: #2d3748;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: var(--link-color);
+::selection { background: var(--accent); color: var(--bg); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,110,0); }
+  50% { box-shadow: 0 0 20px 4px rgba(201,169,110,0.15); }
 }
 
-a:hover {
-  color: var(--hover-color);
+.animate-fade-up { animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-fade-in { animation: fadeIn 1s ease both; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+.text-shimmer {
+  background: linear-gradient(120deg, #c9a96e 0%, #f0d9a8 35%, #c9a96e 65%, #a07840 85%, #c9a96e 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
 }
 
-header {
-  background-color: var(--header-bg-color);
-}
-
-button{
-  color: var(--button-color);
-}
-
-html {
-  scroll-behavior: smooth;
-}
+a { color: inherit; text-decoration: none; }

@@ -1,91 +1,108 @@
-import React from 'react'
+import React from "react";
+
+const degrees = [
+  {
+    level: "BSc",
+    title: "Computer Science & Engineering",
+    institution: "American International University-Bangladesh (AIUB)",
+    period: "2021 – 2025",
+    score: "3.76 / 4.00",
+    note: "Relevant: OOP, Data Structures, Algorithms, Software Engineering, AI, ERP, .NET",
+  },
+  {
+    level: "HSC",
+    title: "Higher Secondary Certificate",
+    institution: "Milestone College, Dhaka",
+    period: "2019",
+    score: "5.00 / 5.00",
+    note: "Science Group",
+  },
+  {
+    level: "SSC",
+    title: "Secondary School Certificate",
+    institution: "Patuakhali Govt. Jubilee High School",
+    period: "2017",
+    score: "4.59 / 5.00",
+    note: "Science Group",
+  },
+];
 
 const Educational = () => {
   return (
-    <>
-      <section id="education" className="min-h-fit py-12">
-              <h2 className="text-3xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
-                  Education
-                </span>
-              </h2>
+    <section id="education" style={{ paddingBottom: "3rem" }}>
+      <div style={{ marginBottom: "0.4rem" }}>
+        <span style={{ fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--accent)" }}>
+          Academic Background
+        </span>
+      </div>
+      <h2 style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "2rem", fontWeight: 600, color: "var(--white)", marginBottom: "2rem" }}>
+        Education
+      </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-5">
-                {/* Card 1 */}
-                <div className="bg-white relative rounded-lg shadow-lg p-6 hover:scale-105 transition-transform duration-300">
-                  {/* Background gradients */}
-                  <div className="absolute top-0 left-0 w-16 h-24 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full blur-3xl opacity-50"></div>
-                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-pink-400 to-orange-400 rounded-full blur-3xl opacity-50"></div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+        {degrees.map((d, i) => (
+          <div
+            key={i}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "80px 1fr auto",
+              gap: "2rem",
+              padding: "1.75rem 0",
+              borderBottom: "1px solid var(--border)",
+              alignItems: "start",
+              transition: "background 0.2s",
+            }}
+            className="edu-row"
+          >
+            {/* Level badge */}
+            <div>
+              <span style={{
+                display: "inline-block",
+                padding: "4px 10px",
+                border: "1px solid rgba(201,169,110,0.35)",
+                color: "var(--accent)",
+                fontSize: "0.65rem",
+                fontWeight: 500,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                borderRadius: "1px",
+              }}>
+                {d.level}
+              </span>
+            </div>
 
-                  {/* Card Content */}
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-xl font-semibold text-pink-400">
-                        BSc in Computer Science
-                      </h3>
-                      <div className="bg-pink-600 text-white text-sm font-bold px-3 py-1 rounded-full">
-                        3.75/4
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-400 mb-2">
-                      American International University-Bangladesh (AIUB) (2021
-                      - 2025)
-                    </p>
-                    <p className="text-gray-300 text-sm">
-                      Major in Software Engineering
-                    </p>
-                  </div>
-                </div>
+            {/* Info */}
+            <div>
+              <h3 style={{ fontSize: "1rem", fontWeight: 500, color: "var(--white)", marginBottom: "4px" }}>
+                {d.title}
+              </h3>
+              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "6px" }}>
+                {d.institution} · {d.period}
+              </p>
+              <p style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontStyle: "italic" }}>
+                {d.note}
+              </p>
+            </div>
 
-                {/* Card 2 */}
-                <div className="bg-white relative rounded-lg shadow-lg p-6 hover:scale-105 transition-transform duration-300">
-                  {/* Background gradients */}
-                  <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full blur-3xl opacity-50"></div>
-                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-pink-400 to-orange-400 rounded-full blur-3xl opacity-50"></div>
+            {/* Score */}
+            <div style={{ textAlign: "right" }}>
+              <span style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "1.4rem", fontWeight: 600, color: "var(--accent)" }}>
+                {d.score}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
 
-                  {/* Card Content */}
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-xl font-semibold text-pink-400">
-                        HSC (Higher Secondary Certificate)
-                      </h3>
-                      <div className="bg-pink-600 text-white text-sm font-bold px-3 py-1 rounded-full">
-                        5.00/5
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-400 mb-2">
-                      Milestone College, Dhaka (2019)
-                    </p>
-                    <p className="text-gray-300 text-sm">Science group</p>
-                  </div>
-                </div>
+      <style>{`
+        .edu-row:hover { padding-left: 8px; transition: padding 0.3s ease; }
+        @media (max-width: 640px) {
+          .edu-row { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+          .edu-row > div:last-child { text-align: left !important; }
+        }
+      `}</style>
+    </section>
+  );
+};
 
-                {/* Card 3 */}
-                <div className="bg-white relative rounded-lg shadow-lg p-6 hover:scale-105 transition-transform duration-300">
-                  {/* Background gradients */}
-                  <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full blur-3xl opacity-50"></div>
-                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-pink-400 to-orange-400 rounded-full blur-3xl opacity-50"></div>
-
-                  {/* Card Content */}
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-xl font-semibold text-pink-400">
-                        SSC (Secondary School Certificate)
-                      </h3>
-                      <div className="bg-pink-600 text-white text-sm font-bold px-3 py-1 rounded-full">
-                        4.59/5
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-400 mb-2">
-                      Patuakhali Govt. Jubilee High School, Barishal (2017)
-                    </p>
-                    <p className="text-gray-300 text-sm">Science group</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-    </>
-  )
-}
-
-export default Educational
+export default Educational;

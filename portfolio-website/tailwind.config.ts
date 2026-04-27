@@ -8,9 +8,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        cormorant: ["var(--font-cormorant)", "Georgia", "serif"],
+        sans: ["var(--font-dm-sans)", "DM Sans", "sans-serif"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        accent: "#c9a96e",
+        bg: "#0a0a0f",
+        surface: "#111118",
       },
     },
   },

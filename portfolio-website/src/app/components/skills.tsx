@@ -1,297 +1,129 @@
 import React from "react";
 
+const skillGroups = [
+  {
+    label: "Languages",
+    skills: [
+      { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+      { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+      { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+      { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+    ],
+  },
+  {
+    label: "Frameworks & Libraries",
+    skills: [
+      { name: ".NET", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnet/dotnet-original.svg" },
+      { name: "NestJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" },
+      { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+    ],
+  },
+  {
+    label: "Databases",
+    skills: [
+      { name: "SQL Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" },
+      { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+      { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "Oracle", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" },
+    ],
+  },
+  {
+    label: "Tools & Platforms",
+    skills: [
+      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+      { name: "Swagger", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" },
+    ],
+  },
+];
+
 const Skills = () => {
   return (
-    <>
-      {/* Skills Section */}
-      <section id="skills" className="min-h-fit py-12">
-        <h2 className="text-3xl font-bold mb-6">
-          <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
-            Skills
-          </span>
-        </h2>
+    <section id="skills" style={{ paddingBottom: "3rem" }}>
+      <div style={{ marginBottom: "0.4rem" }}>
+        <span style={{ fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--accent)" }}>
+          Technical Proficiency
+        </span>
+      </div>
+      <h2 style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "2rem", fontWeight: 600, color: "var(--white)", marginBottom: "2.5rem" }}>
+        Skills & Technologies
+      </h2>
 
-        {/* Programming Languages */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Programming Languages</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
-            {/* C */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
-                alt="C"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">C</p>
-            </div>
-            {/* C++ */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                alt="C++"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">C++</p>
-            </div>
-            {/* Java */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                alt="Java"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Java</p>
-            </div>
-            {/* C# */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-                alt="C#"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">C#</p>
-            </div>
-            {/* PHP */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
-                alt="PHP"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">PHP</p>
-            </div>
-            {/* JavaScript */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                alt="JavaScript"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">JavaScript</p>
-            </div>
-            {/* TypeScript */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                alt="TypeScript"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">TypeScript</p>
-            </div>
-            {/* Python */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                alt="Python"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Python</p>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+        {skillGroups.map((group) => (
+          <div key={group.label}>
+            <h3 style={{ fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "12px" }}>
+              <span style={{ width: "20px", height: "1px", background: "var(--border)", display: "inline-block" }} />
+              {group.label}
+            </h3>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+              {group.skills.map((skill) => (
+                <div
+                  key={skill.name}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "8px 16px",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
+                    borderRadius: "2px",
+                    transition: "border-color 0.2s, transform 0.2s",
+                    cursor: "default",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(201,169,110,0.35)";
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                  }}
+                >
+                  <img src={skill.icon} alt={skill.name} style={{ width: "18px", height: "18px", objectFit: "contain" }} />
+                  <span style={{ fontSize: "0.82rem", fontWeight: 400, color: "var(--text)" }}>{skill.name}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Frameworks */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Frameworks</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
-            {/* .NET */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnet/dotnet-original.svg"
-                alt=".NET"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">.NET</p>
-            </div>
-            {/* NestJS */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg"
-                alt="NestJS"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">NestJS</p>
-            </div>
-            {/* Next.js */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                alt="Next.js"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Next.js</p>
-            </div>
+      {/* Certifications */}
+      <div style={{ marginTop: "2.5rem", paddingTop: "2rem", borderTop: "1px solid var(--border)" }}>
+        <h3 style={{ fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "12px" }}>
+          <span style={{ width: "20px", height: "1px", background: "var(--border)", display: "inline-block" }} />
+          Certifications
+        </h3>
+        <div style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "12px",
+          padding: "12px 20px",
+          background: "var(--surface)",
+          border: "1px solid rgba(201,169,110,0.2)",
+          borderRadius: "2px",
+        }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M8.56 13.96L7 22l5-3 5 3-1.56-8.04" />
+          </svg>
+          <div>
+            <p style={{ fontSize: "0.85rem", fontWeight: 500, color: "var(--text)" }}>IT Essentials</p>
+            <p style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>Cisco · Issued June 2021</p>
           </div>
         </div>
-
-        {/* Databases */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Databases</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
-            {/* Oracle */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
-                alt="Oracle"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Oracle</p>
-            </div>
-            {/* Microsoft SQL Server */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mssql/mssql-original.svg"
-                alt="Microsoft SQL Server"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">SQL Server</p>
-            </div>
-            {/* MySQL */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                alt="MySQL"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">MySQL</p>
-            </div>
-            {/* PostgreSQL */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                alt="PostgreSQL"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">PostgreSQL</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Other Tools */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 text-pink-400">Other Tools</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
-            {/* HTML */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                alt="HTML5"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">HTML5</p>
-            </div>
-            {/* CSS */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                alt="CSS3"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">CSS3</p>
-            </div>
-            {/* Tailwind CSS */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
-                alt="Tailwind CSS"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Tailwind CSS</p>
-            </div>
-            {/* Bootstrap */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                alt="Bootstrap"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Bootstrap</p>
-            </div>
-            {/* React */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                alt="React"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">React</p>
-            </div>
-            {/* Node.js */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                alt="Node.js"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Node.js</p>
-            </div>
-            {/* Figma */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-                alt="Figma"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Figma</p>
-            </div>
-            {/* Git */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                alt="Git"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Git</p>
-            </div>
-            {/* Postman */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
-                alt="Postman"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Postman</p>
-            </div>
-            {/* Swagger */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg"
-                alt="Swagger"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">Swagger</p>
-            </div>
-            {/* MS Office (Word, Excel, PowerPoint) */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/office/office-original.svg"
-                alt="MS Office"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">MS Office</p>
-            </div>
-            {/* AutoCAD */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/autocad/autocad-original.svg"
-                alt="AutoCAD"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">AutoCAD</p>
-            </div>
-            {/* JWT */}
-            <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jwt/jwt-original.svg"
-                alt="JWT"
-                className="w-16 h-16 mb-2"
-              />
-              <p className="text-gray-600 font-semibold">JWT</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

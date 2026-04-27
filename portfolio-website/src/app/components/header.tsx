@@ -1,123 +1,148 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-  // Check localStorage for saved theme on page load
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = isDarkMode ? "light" : "dark";
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme); // Save the theme preference
-  };
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/contact", label: "Contact" },
+  ];
 
   return (
-    <header className="sticky h-20 top-0 z-50 shadow-md font-sans">
-      <div className="container mx-auto px-4 py-3 h-full flex justify-between items-center">
-        {/* Logo Section */}
-        <div className="w-16 h-16">
-          <Link href="/" className="hover:text-blue-400">
-            <Image
-              src="/logo.jpg"
-              alt="Profile"
-              width={80}
-              height={80}
-              quality={100}
-              className="rounded-full object-contain ring ring-blue-500"
-            />
-          </Link>
-        </div>
+    <header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+        background: scrolled ? "rgba(10,10,15,0.92)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        transition: "all 0.4s ease",
+      }}
+    >
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2rem", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        {/* Logo */}
+        <Link href="/" style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
+          <span style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "1.1rem", fontWeight: 600, color: "var(--accent)", letterSpacing: "0.05em" }}>
+            Safkat
+          </span>
+          <span style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--text-muted)" }}>
+            Software Engineer
+          </span>
+        </Link>
 
-        {/* Navigation Links */}
-        <nav
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } md:flex md:space-x-6 text-md absolute md:static top-20 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent p-4 md:p-0`}
-        >
-          <Link href="/" className="block py-2 md:py-0">
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="block py-2 md:py-0"
-          >
-            About
-          </Link>
-          <Link
-            href="/projects"
-            className="block py-2 md:py-0"
-          >
-            Projects
-          </Link>
-          <Link
-            href="/contact"
-            className="block py-2 md:py-0"
-          >
-            Contact
-          </Link>
-          {/* Theme Toggle with Icons */}
-        <button onClick={toggleTheme} className=" text-white rounded-md">
-          {isDarkMode ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
+        {/* Desktop Nav */}
+        <nav style={{ display: "flex", gap: "2.5rem", alignItems: "center" }} className="hidden md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: pathname === link.href ? "var(--accent)" : "var(--text-muted)",
+                transition: "color 0.2s ease",
+                position: "relative",
+              }}
+              onMouseEnter={(e) => { if (pathname !== link.href) (e.target as HTMLElement).style.color = "var(--text)"; }}
+              onMouseLeave={(e) => { if (pathname !== link.href) (e.target as HTMLElement).style.color = "var(--text-muted)"; }}
             >
-              <path
-                fill="currentColor"
-                d="M12 17q-2.075 0-3.537-1.463T7 12t1.463-3.537T12 7t3.538 1.463T17 12t-1.463 3.538T12 17m-7-4H1v-2h4zm18 0h-4v-2h4zM11 5V1h2v4zm0 18v-4h2v4zM6.4 7.75L3.875 5.325L5.3 3.85l2.4 2.5zm12.3 12.4l-2.425-2.525L17.6 16.25l2.525 2.425zM16.25 6.4l2.425-2.525L20.15 5.3l-2.5 2.4zM3.85 18.7l2.525-2.425L7.75 17.6l-2.425 2.525z"
-              ></path>
-            </svg>
-          ) : (
-            <svg
-              className="text-blue-600"
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M12 21q-3.75 0-6.375-2.625T3 12t2.625-6.375T12 3q.35 0 .688.025t.662.075q-1.025.725-1.638 1.888T11.1 7.5q0 2.25 1.575 3.825T16.5 12.9q1.375 0 2.525-.613T20.9 10.65q.05.325.075.662T21 12q0 3.75-2.625 6.375T12 21"
-              ></path>
-            </svg>
-          )}
-        </button>
+              {link.label}
+              {pathname === link.href && (
+                <span style={{ position: "absolute", bottom: "-4px", left: 0, right: 0, height: "1px", background: "var(--accent)" }} />
+              )}
+            </Link>
+          ))}
+          <a
+            href="/cv.pdf"
+            download
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 500,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "var(--bg)",
+              background: "var(--accent)",
+              padding: "8px 18px",
+              borderRadius: "1px",
+              transition: "opacity 0.2s ease",
+            }}
+          >
+            Resume
+          </a>
         </nav>
 
+        {/* Mobile menu button */}
         <button
-          className="md:hidden focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden"
+          style={{ color: "var(--text-muted)", background: "none", border: "none", cursor: "pointer", padding: "8px" }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={isDarkMode ? "h-6 w-6" : "h-6 w-6 text-blue-500"}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
-            />
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            {isMenuOpen ? (
+              <path d="M5 5L17 17M17 5L5 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            ) : (
+              <>
+                <path d="M3 7h16M3 11h16M3 15h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            )}
           </svg>
         </button>
       </div>
+
+      {/* Mobile Nav */}
+      {isMenuOpen && (
+        <div
+          className="md:hidden"
+          style={{
+            background: "var(--surface)",
+            borderBottom: "1px solid var(--border)",
+            padding: "1.5rem 2rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.25rem",
+          }}
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              style={{
+                fontSize: "0.8rem",
+                fontWeight: 500,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: pathname === link.href ? "var(--accent)" : "var(--text-muted)",
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="/cv.pdf"
+            download
+            style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--accent)" }}
+          >
+            Download Resume
+          </a>
+        </div>
+      )}
     </header>
   );
 };
