@@ -1,37 +1,57 @@
-import type { Metadata } from "next";
-import { DM_Sans, Cormorant_Garamond } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header";
-import ScrollToTop from "./components/scroll";
+import { profile } from "@/data/portfolio";
+import AmbientBackground from "@/components/ambient-background";
+import MotionEffects from "@/components/motion/motion-effects";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
+const sans = Inter({ variable: "--font-sans", subsets: ["latin"], display: "swap" });
+const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"], weight: ["400", "500", "600"], display: "swap" });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
+const title = `${profile.name} — Software Engineer | Full-Stack Developer`;
+const description =
+  "Software Engineer in Dhaka, Bangladesh specialising in .NET, React and SQL Server — backend architecture, REST APIs, multi-tenant SaaS and backend development for Flutter applications.";
 
 export const metadata: Metadata = {
-  title: "Safkat Mahmud Sakib — Software Engineer",
-  description: "Full Stack Developer specializing in enterprise applications, SaaS ERP systems, and scalable architecture.",
+  title,
+  description,
+  authors: [{ name: profile.name }],
+  keywords: [
+    "Safkat Mahmud Sakib",
+    "Software Engineer",
+    "Full-Stack Developer",
+    ".NET 8",
+    "React",
+    "SQL Server",
+    "ASP.NET Core",
+    "Multi-tenant SaaS",
+    "Dhaka",
+  ],
+  openGraph: {
+    type: "profile",
+    title,
+    description,
+    siteName: profile.name,
+    locale: "en_US",
+  },
+  twitter: { card: "summary", title, description },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export const viewport: Viewport = {
+  themeColor: "#0B1220",
+  colorScheme: "dark",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${dmSans.variable} ${cormorant.variable} antialiased`}
-        style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif" }}>
-        <Header />
-        <ScrollToTop />
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body>
+        <noscript>
+          <style>{`.reveal,.reveal *{opacity:1!important;transform:none!important;animation:none!important}`}</style>
+        </noscript>
+        <AmbientBackground />
         {children}
+        <MotionEffects />
       </body>
     </html>
   );
